@@ -10,11 +10,11 @@ echo '<div id="content">';
            $content = $row->content;
        } 
     } else {
-       $title = '&nbsp;';
+       $title = empty($title) ? NULL : $title;
        $ingress = '&nbsp;';
-       $content = empty($content) ? NULL : $content;
+       $content = '&nbsp;';
     }
-
+    $drop = empty($drop) ? NULL : $drop;
    
    // Make space in top of main page
    echo '<div class="headline"></div>';
@@ -38,6 +38,10 @@ echo '<div id="content">';
         echo '<h1>'.$title.'</h1>'; 
         echo '<p><strong>'.$ingress.'</strong></p>'; 
         echo '<p>'.nl2br($content).'</p>'; 
+        ?>
+        <? 
+        // TEMPORARY
+        echo '<p>'.nl2br($drop).'</p>'; 
         ?>
  
     <!-- <p><a href="<? //echo base_url()?>info" class="read-more">Läs mer</a></p> -->

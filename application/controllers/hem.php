@@ -23,20 +23,20 @@ class Hem extends CI_Controller {
             { 
                 
             
-              $page_tbl = !$this->db->table_exists('pagedata') ? 'Tabell för "sida" saknas, <a href="' . base_url() . 'admin/skapa_sida"> Skapa tabell!</a>' : 'Tabell för sida - OK!';
-              $blog_tbl = !$this->db->table_exists('blogs') ? 'Tabell för "blog" saknas, <a href="' . base_url() . 'admin/skapa_blog"> Skapa tabell!</a>' : 'Tabell för blog - OK!';
-              $user_tbl = !$this->db->table_exists('users') ? 'Tabell för "medlem" saknas, <a href="' . base_url() . 'admin/skapa_user"> Skapa tabell!</a>' : 'Tabell för medlem - OK!';
-            
-              $content =  '<p>'. $page_tbl .'</p>';
-              $content .= '<p>'. $blog_tbl .'</p>';
-              $content .= '<p>'. $user_tbl .'</p>';
+              $page_tbl = !$this->db->table_exists('pagedata') ? 'Tabell för "sida" saknas, <a href="' . base_url() . 'admin/skapa_sida"> Skapa tabell</a>' : 'Tabell för sida - OK!';
+              $blog_tbl = !$this->db->table_exists('blogs') ? 'Tabell för "blog" saknas, <a href="' . base_url() . 'admin/skapa_blog"> Skapa tabell</a>' : 'Tabell för blog - OK!';
+              $user_tbl = !$this->db->table_exists('users') ? 'Tabell för "medlem" saknas, <a href="' . base_url() . 'admin/skapa_user"> Skapa tabell</a>' : 'Tabell för medlem - OK!';
               
-              $data['content'] = $content;
-           //  echo '<p><a href="' . base_url() . 'admin/skapawebsida">Klicka här!</a><p />';
+              $title = '<h2>Du måste skapa alla tabeller!</h2><hr />';
+              $title .=  '<p>'. $page_tbl .'</p>';
+              $title .= '<p>'. $blog_tbl .'</p>';
+              $title .= '<p>'. $user_tbl .'</p>';
               
+              $data['title'] = $title;
+                         
               $data['footData'] = NULL;
               $data["result"]   = NULL;
-                  //  exit;
+              
         } else {
                 
         // Start Foot data
@@ -47,7 +47,18 @@ class Hem extends CI_Controller {
         // Parameter in getData('hem')is from 'page' field in 'pagedata' table
         $data["result"] = $this->model_pages->getData('hem'); 
         
-        }
+       }
+        
+       // TEMPORARY
+        $drop = '<hr /><p>För uppgiften skapade jag den här delen så att man kan ta bort tabeller och börja om på nytt!</p>';
+        $drop .= '<a href="' . base_url() . 'hem/drop/pagedata"> Ta bort tabell för "sida"</a><br />'; 
+        $drop .= '<a href="' . base_url() . 'hem/drop/blogs"> Ta bort tabell för "blog"</a><br />'; 
+        $drop .= '<a href="' . base_url() . 'hem/drop/users"> Ta bort tabell för "medlem"</a>'; 
+        
+        $data["drop"] = $drop; 
+        
+        // END TEMP
+        
         
         // Development controller - 
         // Just temporary, When done developing remove this
@@ -60,9 +71,24 @@ class Hem extends CI_Controller {
         $this->load->view($main, $data);
         $this->load->view('includes/dev_footer');
         $this->load->view('includes/footer', $data);
-
+        
+               
+         
         
         } // End func home
+        
+      public function drop(){
+             // This is just during the projekt so you can start over and drop
+        // or remove all tables
+        //$data['drop_all'] = $this->model_pages->dropAll();
+           $tbl = $this->uri->segment(3); 
+           
+       $this->model_pages->dropTbl($tbl);
+        
+        redirect(base_url());
+        
+        }
+        
 } // End class Hem
 
 

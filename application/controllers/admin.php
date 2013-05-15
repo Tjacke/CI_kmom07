@@ -298,6 +298,40 @@ class Admin extends CI_Controller {
         
     } // END fot validation
 
+    
+     public function medlem() {
+
+        $data['uri_2'] = 'medlem'; // switch in view_admin
+        $uri_3 = $this->uri->segment(3);
+        //$data['edit_post'] = empty($uri_3) ? null : $uri_3;
+        $main = 'view_admin';
+        
+         
+        $data['users'] = $this->model_pages->getUsers();
+        $data['tempUsers'] = $this->model_pages->getTempUsers();
+       // $data['uri_4'] = $this->uri->segment(4);
+       // $data['validate'] = $this->load->library('form_validation');
+
+      //  $this->load->helper('file');
+
+        // Start Head data
+        $data['headImg'] = $this->model_pages->getHead();
+        // End Head data     
+         
+        // Start Foot data
+        $data['footData'] = $this->model_pages->getFootData();
+        // End Foot  data
+        
+        // Get hem content from db
+        // Parameter in getData('hem')is from 'page' field in 'pagedata' table
+        $data["result"] = $this->model_pages->getData('admin'); 
+        
+        // Load View
+        $this->load->view('includes/header', $data);
+        $this->load->view($main, $data);
+        $this->load->view('includes/footer', $data);
+        
+    } // End func medlem
 
     
     
@@ -305,7 +339,7 @@ class Admin extends CI_Controller {
     public function skapa_sida() {
        // if ($this->session->userdata('is_logged_in')) {
             $this->model_pages->do_page_table();
-            redirect(base_url() . 'admin/sidor');
+            redirect(base_url());
      //   } else {
       //      echo 'Du måste ha administrativa rättigheter för att skapa websidan';
       //      echo '<p><a href ="' . base_url() . '">Hem</a></p>';
@@ -319,7 +353,7 @@ class Admin extends CI_Controller {
     public function skapa_blog() {
        // if ($this->session->userdata('is_logged_in')) {
             $this->model_pages->do_blog_table();
-            redirect(base_url() . 'admin/blog');
+            redirect(base_url());
      //   } else {
       //      echo 'Du måste ha administrativa rättigheter för att skapa websidan';
       //      echo '<p><a href ="' . base_url() . '">Hem</a></p>';
@@ -334,7 +368,7 @@ class Admin extends CI_Controller {
     public function skapa_user() {
        // if ($this->session->userdata('is_logged_in')) {
             $this->model_pages->do_user_table();
-            redirect(base_url() . 'medlem');
+            redirect(base_url());
      //   } else {
       //      echo 'Du måste ha administrativa rättigheter för att skapa websidan';
       //      echo '<p><a href ="' . base_url() . '">Hem</a></p>';

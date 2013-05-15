@@ -37,8 +37,9 @@ echo '<div id="content">';
        echo '<div class="Admin_menu"><a href="' . base_url() . 'admin/fot">Fottext</a></div>';
        echo '<div class="Admin_menu"><a href="' . base_url() . 'admin/blog">Bloggar</a></div>';
        echo '<div class="Admin_menu"><a href="' . base_url() . 'admin/sidor">Sidor</a></div>';
+       echo '<div class="Admin_menu"><a href="' . base_url() . 'admin/medlem">Medlemmar</a></div>';
        echo '<div class="clear"></div>';
-       
+       echo '<hr />';
        
 switch ($uri_2) {
             
@@ -360,6 +361,58 @@ case 'blog':
                 }
                 break;
 ////////////////////////////////////////////////////////////////////////////////
+/// medlem
+////////////////////////////////////////////////////////////////////////////////
+case 'medlem':
+             $tRow = NULL;   
+    foreach($users as $row){
+           $tRow .= '<tr><td>' . $row->id . '</td>';
+           $tRow .= '<td>' . $row->email . '</td>';
+           $tRow .= '<td>' . $row->password . '</td>';
+           $tRow .= '<td>' . 'edit' . '</td></tr>';
+    }            
+    
+    echo '<h3>Medlemmar:</h3>';
+    ?>
+    <table border="1">
+<tr>
+<th>id:</th>
+<th>E-Post:</th>
+<th>Lösen:</th>
+<th>Edit:</th>
+</tr>
+<?
+echo $tRow;
+?>
+</table>
+    <br />
+ <?   
+              $tRow = NULL;
+         foreach ($tempUsers as $row) {
+             $tRow .= '<tr><td>' . $row->id . '</td>';
+             $tRow .= '<td>' . $row->email . '</td>';
+             $tRow .= '<td>' . $row->key . '</td>';
+             $tRow .= '<td>' . 'Radera' . '</td></tr>';
+         }
+
+         echo '<h3>Ansökningar:</h3>';
+?>
+    <table border="1">
+<tr>
+<th>id:</th>
+<th>E-Post:</th>
+<th>Key:</th>
+<th>Radera:</th>
+</tr>
+<?
+echo $tRow;
+?>
+</table>
+    <br />
+ <?   
+            
+                break;
+////////////////////////////////////////////////////////////////////////////////
 /// default
 ////////////////////////////////////////////////////////////////////////////////
             default:
@@ -387,48 +440,50 @@ case 'blog':
          
          
          
-        <div class="grid_4"> <!-- Start right -->
-        
-            <?
-            
-            //$this->load->model('model_pages');
-            $edit = $this->model_pages->getEdit();
-            $page = $this->model_pages->getPage();
-            $nr = null;
-            // Do array for each key and Do links for show content
-            foreach ($edit as $value) {
-                    
-                $page1 = $value->page;
-                    
-                    @$res1[$page1] .= '<a href ="' . base_url() . 'admin/sidor/' . $value->id . '">' . $value->title . '</a><br />';
-                    if($page1 == 'sidfot') {
-                       $nr += 1; 
-                    @$res2[$page1] .= '<a href ="' . base_url() . 'admin/fot/' . $value->id . '">' . $value->page .' - '. $nr . '</a><br />';
-                    }
-                    
-            }
-            if($uri_2 == 'sidor') {
-            foreach ($page as $value1) {
-                $page = $value1->page;
-              if($page != 'logga' && $page != 'sidfot') {
-                echo '<h3>' . $page . '</h3>';
-                echo print_r($res1[$page], true) . '<hr />';
-              }}}
-              
-               if($uri_2 == 'fot') {
-            foreach ($page as $value1) {
-                $page = $value1->page;
-              if($page == 'sidfot') {
-                echo '<h3>' . $page . '</h3>';
-                echo print_r($res2[$page], true) . '<hr />';
-              }}}
-           
-              if ($uri_2 == 'blog') {
-            
-             echo '<h1>' . $title . '</h1>';
-             echo '<p><strong>' . $ingress . '</strong></p>';
-             echo '<p>' . nl2br($content) . '</p>';
-         }
+         <div class="grid_4"> <!-- Start right -->
+
+             <?
+             //$this->load->model('model_pages');
+             $edit = $this->model_pages->getEdit();
+             $page = $this->model_pages->getPage();
+             $nr = null;
+             // Do array for each key and Do links for show content
+             foreach ($edit as $value) {
+
+                 $page1 = $value->page;
+
+                 @$res1[$page1] .= '<a href ="' . base_url() . 'admin/sidor/' . $value->id . '">' . $value->title . '</a><br />';
+                 if ($page1 == 'sidfot') {
+                     $nr += 1;
+                     @$res2[$page1] .= '<a href ="' . base_url() . 'admin/fot/' . $value->id . '">' . $value->page . ' - ' . $nr . '</a><br />';
+                 }
+             }
+             if ($uri_2 == 'sidor') {
+                 foreach ($page as $value1) {
+                     $page = $value1->page;
+                     if ($page != 'logga' && $page != 'sidfot') {
+                         echo '<h3>' . $page . '</h3>';
+                         echo print_r($res1[$page], true) . '<hr />';
+                     }
+                 }
+             }
+
+             if ($uri_2 == 'fot') {
+                 foreach ($page as $value1) {
+                     $page = $value1->page;
+                     if ($page == 'sidfot') {
+                         echo '<h3>' . $page . '</h3>';
+                         echo print_r($res2[$page], true) . '<hr />';
+                     }
+                 }
+             }
+
+             if ($uri_2 == 'blog') {
+
+                 echo '<h1>' . $title . '</h1>';
+                 echo '<p><strong>' . $ingress . '</strong></p>';
+                 echo '<p>' . nl2br($content) . '</p>';
+             }
 
 
 

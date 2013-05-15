@@ -14,7 +14,39 @@ class Model_pages extends CI_Model {
           return NULL;
         }
         
+    } // END getData
+    
+    function getUsers(){
+        // Sort db 
+        $query = $this->db->query("SELECT * FROM users");
+        return $query->result();
+        }
+    function getTempUsers(){
+        // Sort db 
+        $query = $this->db->query("SELECT * FROM temp_users");
+        return $query->result();
+        
+    } // END getData
+    
+    function dropTbl($tbl){
+        //echo 'inne i motort - ' . $tbl;
+       // exit;
+        //$this->dbforge->drop_table('pagedata');
+        $sql = 'DROP TABLE IF EXISTS ' . $tbl;
+        $query = $this->db->query($sql); 
+        
+        if($tbl == 'users'){
+            $sql = 'DROP TABLE IF EXISTS ' . 'temp_users';
+            $query = $this->db->query($sql); 
+        }
+        return TRUE; 
+// gives DROP TABLE IF EXISTS table_name
+      //  $query = $this->db->get_where("pagedata", array("id" => $id));
+      //  return $query->result();
     }
+            
+    
+    
     
     function getPageId($id){
         $query = $this->db->get_where("pagedata", array("id" => $id));
@@ -380,7 +412,7 @@ class Model_pages extends CI_Model {
         $this->dbforge->create_table('temp_users');
         
         
-    } // END do blog table
+    } // END do users & temp_users table
    
     
   } // End Class Model_pages
