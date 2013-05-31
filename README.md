@@ -20,18 +20,18 @@ egna inställningar, då ska dessa fyllas i.
 >> $db['default']['username'] = 'root';  
 >> $db['default']['password'] = '';  
 >> $db['default']['database'] = 'site';  
-
-Byt:  
->> 'localhost' 	till din host eller webhotell  
->> 'root' 			till ditt användarnamn  
->> ''			    till ett lösenord
->> 'site'			till databasens namn  
   
-O.B.S. innan du spara filen.
-
-Se till att den här raden har rätt prefix:
-
->> $db['default']['dbdriver'] = "mysql";
+Byt:  
+>> 'localhost' 		till din host eller webhotell  
+>> 'root' 			till ditt användarnamn   
+>> ''			    till ett lösenord  
+>> 'site'			till databasens namn    
+  
+O.B.S. innan du spara filen.  
+  
+Se till att den här raden har rätt prefix:  
+  
+>> $db['default']['dbdriver'] = "mysql";  
 
 Databas typerna är t.ex. mysql, postgres, odbc, etc. >> Måsta vara små bokstäver.
 Olika plattformar kräver olika prefix. BTH har prefix "mysql".
