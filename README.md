@@ -14,22 +14,22 @@ Filen "database.php" hittar du här:
 application->config->database.php  
 
 Öppna filen och leta reda på dessa rader:  
-$db['default']['hostname'] = 'localhost';  
-$db['default']['username'] = 'root';  
-$db['default']['password'] = '';  
-$db['default']['database'] = 'site';  
+>> $db['default']['hostname'] = 'localhost';  
+>> $db['default']['username'] = 'root';  
+>> $db['default']['password'] = '';  
+>> $db['default']['database'] = 'site';  
 
 Byt:  
-'localhost' 	till din host eller webhotell  
-'root' 			till ditt användarnamn  
-''				till ett lösenord  
-'site'			till databasens namn  
+>> 'localhost' 	till din host eller webhotell  
+>> 'root' 			till ditt användarnamn  
+>> ''				till ett lösenord  
+>> 'site'			till databasens namn  
   
 O.B.S. innan du spara filen.
 
 Se till att den här raden har rätt prefix:
 
-$db['default']['dbdriver'] = "mysql";
+>> $db['default']['dbdriver'] = "mysql";
 
 Databas typerna är t.ex. mysql, postgres, odbc, etc. >> Måsta vara små bokstäver.
 Olika plattformar kräver olika prefix. BTH har prefix "mysql".
@@ -48,8 +48,8 @@ på rad 3 ändrar du "RewriteBase":
 Du kanske måste kolla med din host som har webbhotellet vilken som är rätt sökväg.  
 
 Exempel:   
-RewriteBase /vision/  
-RewriteBase /~username/phpmvc/kmom05/  
+>> RewriteBase /vision/  
+>> RewriteBase /~username/phpmvc/kmom05/  
 
 3.-Favicon
 ----------
@@ -65,7 +65,7 @@ Följ sedan instruktionerna på sidan.
 
 De 4 databaser som initieras är:  
 >> users  
->> temp-user - Skapas när man skapar users  
+>> temp-users - Skapas när man skapar users  
 >> pagedata  
 >> blogs  
  
