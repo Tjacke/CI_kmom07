@@ -63,7 +63,7 @@ Sökvägen till filen: application->views->includes->header.php
 När alla inställningar är gjorda så gå till första sidan och initiera databaserna.
 Följ sedan instruktionerna på sidan.
 
-De databaser som initieras är:
+De databaser som initieras är:  
 users  
 temp-user - Skapas när man skapar users  
 pagedata  
