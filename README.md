@@ -64,11 +64,11 @@ När alla inställningar är gjorda så gå till första sidan och initiera data
 Följ sedan instruktionerna på sidan.
 
 De databaser som initieras är:
-users
-temp-user - Skapas när man skapar users
-pagedata
-blogs
-
+users  
+temp-user - Skapas när man skapar users  
+pagedata  
+blogs  
+ 
 En temporär användare skapas.
 Alla lösenorde är md5 skyddade.
 
