@@ -13,7 +13,9 @@ Denna funktion ska man endast kunna göra en gång då man startar upp sidan.
 Filen "database.php" hittar du här:  
 application->config->database.php  
 
-Öppna filen och leta reda på dessa rader:  
+Öppna filen och leta reda på dessa rader:
+Kör du lokalt ska det vara som det är såvida du inte har  
+egna inställningar, då ska dessa fyllas i.   
 >> $db['default']['hostname'] = 'localhost';  
 >> $db['default']['username'] = 'root';  
 >> $db['default']['password'] = '';  
@@ -22,7 +24,7 @@ application->config->database.php
 Byt:  
 >> 'localhost' 	till din host eller webhotell  
 >> 'root' 			till ditt användarnamn  
->> ''				till ett lösenord  
+>> ''			    till ett lösenord
 >> 'site'			till databasens namn  
   
 O.B.S. innan du spara filen.
