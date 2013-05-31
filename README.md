@@ -42,7 +42,7 @@ medlemsskap.
 
 2.-Ändra i .htaccess filen
 --------------------------
-Du hittar filen i rooten. Du ska även se application mappen:  
+Du hittar filen i rooten. Du ska se application mappen:  
 
 Öppna filen .htaccess  
 på rad 3 ändrar du "RewriteBase":  
@@ -72,7 +72,7 @@ De 4 databaser som initieras är:
 >> blogs  
  
 En temporär användare skapas.
-Alla lösenorde är md5 skyddade.
+Alla lösenord är md5 skyddade.
 
 //Lycka till!
 
