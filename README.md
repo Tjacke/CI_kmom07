@@ -6,7 +6,7 @@ O.B.S
 Denna version är endast till för redovisning av kmom10 BTH 2013
 En funktion är inbyggd så att man kan ta bort skapade databaser bara för att testa sidan.
 Denna funktion ska man endast kunna göra en gång då man startar upp sidan.
-  
+
   
 1.-Gör databasinställningar 
 -----------------------------
@@ -62,6 +62,15 @@ Sökvägen till filen: application->views->includes->header.php
 ------------------
 När alla inställningar är gjorda så gå till första sidan och initiera databaserna.
 Följ sedan instruktionerna på sidan.
+
+De databaser som initieras är:
+users
+temp-user - Skapas när man skapar users
+pagedata
+blogs
+
+En temporär användare skapas.
+Alla lösenorde är md5 skyddade.
 
 //Lycka till!
 
