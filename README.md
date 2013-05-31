@@ -33,6 +33,11 @@ Exempel:
 RewriteBase /vision/  
 RewriteBase /~username/phpmvc/kmom05/  
 
+3. Favicon
+Vill du ha en favicon så lägger du den i rootmappen och döper den till "favicon.png" 
+och sparar över den som följer med.
+Vill du byta namn på favicon kan du göra det i filen: "header.php"
+Sökvägen till filen: application->views->includes->header.php
 
 
 

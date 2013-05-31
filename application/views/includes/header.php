@@ -10,7 +10,7 @@
         <!-- <script src="<? //echo base_url(); ?>scripts/test.js"></script> -->
 
         <!-- display image as favicon -->
-        <link rel="shortcut icon" href="<? echo base_url(); ?>favicon1.png">
+        <link rel="shortcut icon" href="<? echo base_url(); ?>favicon.png">
     </head>
     
     <body>
