@@ -55,15 +55,15 @@ Exempel:
 
 3.-Favicon
 ----------
-Vill du ha en favicon så lägger du den i rootmappen och döper den till "favicon.png" 
-och sparar över den som följer med.
-Vill du byta namn på favicon kan du göra det i filen: "header.php"
-Sökvägen till filen: application->views->includes->header.php
+Vill du ha en favicon så lägger du den i rootmappen och döper den till "favicon.png"   
+och sparar över den som följer med.  
+Vill du byta namn på favicon kan du göra det i filen: "header.php"  
+Sökvägen till filen: application->views->includes->header.php  
 
 4.-Klart att testa
 ------------------
-När alla inställningar är gjorda så gå till första sidan och initiera databaserna.
-Följ sedan instruktionerna på sidan.
+När alla inställningar är gjorda så gå till första sidan och initiera databaserna.  
+Följ sedan instruktionerna på sidan.  
 
 De 4 databaser som initieras är:  
 >> users  
@@ -71,13 +71,13 @@ De 4 databaser som initieras är:
 >> pagedata  
 >> blogs  
  
-En temporär användare skapas.
-Alla lösenord är md5 skyddade.
+En temporär användare skapas.  
+Alla lösenord är md5 skyddade.  
 
-//Lycka till!
+//Lycka till!  
 
-Vid frågor kontakta 
-tjacke@hotmail.com
+Vid frågor kontakta   
+tjacke@hotmail.com  
 
 
 
