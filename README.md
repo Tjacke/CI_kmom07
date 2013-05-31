@@ -12,12 +12,12 @@ Denna funktion ska man endast kunna göra en gång då man startar upp sidan.
 ------------------------------
 
 Antingen laddar du hem filerna manuellt eller så klonar du.  
-1. - Skapa en mapp på din dator.  
-2. - Med t.ex. git bash går du in i den skapade mappen  
-3. - Skriv in raden under i git bash för att klona sidan till din mapp.  
+1.- Skapa en mapp på din dator.  
+2.- Med t.ex. git bash går du in i den skapade mappen  
+3.- Skriv in raden under i git bash för att klona sidan till din mapp.  
 >> git clone https://github.com/Tjacke/CI_kmom07.git  
 
-4. - Ladda sedan upp filerna i mappen CI_kmom07 till roten på ditt hotell / host  
+4.- Ladda sedan upp filerna i mappen CI_kmom07 till roten på ditt hotell / host  
 
   
 2.-Gör databasinställningar 
